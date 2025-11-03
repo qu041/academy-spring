@@ -7,10 +7,7 @@
 ## 📁 프로젝트 생성 및 기본 설정
 
 ### 🔹 새 프로젝트 생성
-File > New > Spring Legacy Project > Spring MVC Project
-
-yaml
-코드 복사
+`File > New > Spring Legacy Project > Spring MVC Project`
 
 - **Project name:** `Project`  
 - **Root package:** `com.test.project`
@@ -58,6 +55,7 @@ yaml
 ---
 
 ## 👤 회원 관련 기능
+
 | 기능 | JSP | Controller |
 |------|------|-------------|
 | 회원가입 | `views/content/member/add.jsp` | `MemberController.java` |
@@ -91,7 +89,7 @@ src/main/webapp/WEB-INF/views
 ├─ inc/
 │ └─ header.jsp
 └─ layout/
-└─ tiles 설정 관련 JSP
+└─ tiles 관련 JSP
 
 src/main/resources
 ├─ mappers/
@@ -121,9 +119,10 @@ yaml
 ---
 
 ## 🧠 참고
-- STS(Spring Tool Suite) 또는 Eclipse 기반 프로젝트
-- `.settings`, `.classpath`, `.project`, `/bin`, `/target` 등은 `.gitignore`로 관리
-- 각 모듈은 독립 테스트 가능하며, `Project`는 전체 통합형 구조
+
+- STS(Spring Tool Suite) 또는 Eclipse 기반 프로젝트  
+- `.settings`, `.classpath`, `.project`, `/bin`, `/target` 등은 `.gitignore`로 관리  
+- 각 모듈은 독립 테스트 가능하며, `Project`는 전체 통합형 구조  
 
 ---
 
