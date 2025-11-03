@@ -1,0 +1,74 @@
+프로젝트 설정하기
+새 프로젝트 
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "Project"
+- root package: "com.test.project"
+
+
+현재 프로젝트 버전 수정하기
+
+1. 자바 버전 > 11
+	- pom.xml
+	- 프로젝트 > 우측버튼 > Properties > Project facets
+	
+2. 스프링 버전 > 5.0.7
+	- pom.xml
+	
+----------------------------------------------------------
+프로젝트 설정내용
+1. MVC Project
+2. myBatis(인터페이스매퍼)
+3. Tiles
+4. Security
+5. Fileupload
+6. Ajax >  REST Controller
+
+-----------------------------------------------------------
+
+Mybatis > MyBatisSimpleTest or SecurityTest
+-pom.xml
+-root-context.xml
+	mapper / config 만들기
+===============================================
+Tiles > TilesTest
+-pom.xml
+-servlet-context.xml
+
+==============================================
+Security > SecurityTest
+-pom.xml
+-web.xml
+
+------------------------------------------------
+
+Project > "script.sql"
+
+------------------------------------------------
+FileUpload > FileTest
+-web.xml
+
+------------------------------------------------
+AJAX > REST Controller
+- jackson-databind / pom.xml
+
+-----------------------------------------------
+
+1. 회원관련
+	- 가입
+	- 로그인/로그아웃
+
+2. 게시판(CRUD)
+	- CRUD
+	
+=============================================================================
+파일
+
+-com.test.project.controller > "MemberController.java
+-com.test.project.mapper > "MemberMapper.java > 재사용
+
+
+- views > content > "member" > "add.jsp"(회원가입)
+							> "login.jsp(로그인)
+
+- views > inc > "header.jsp"						

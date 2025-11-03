@@ -107,4 +107,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.tmp.driveupload/.vscode/
 .tmp.driveupload/
+gitignore/
