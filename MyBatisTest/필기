@@ -1,0 +1,92 @@
+새 프로젝트 
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "MyBatisTest"
+- root package: "com.test.java"
+
+
+현재 프로젝트 버전 수정하기
+
+1. 자바 버전 > 11
+	- pom.xml
+	- 프로젝트 > 우측버튼 > Properties > Project facets
+	
+2. 스프링 버전 > 5.0.7
+	- pom.xml
+
+-----------------------------------------------------------
+의존성 추가하기
+
+- pom.xml > 의존성 추가
+- log4j > 1.2.17 버전 사용
+- org.bgee.log4jdbc-log4j2 >JDBC 연결
+- junit 4.12 버전 
+- lombok >1.18.40 버전 /스코프삭제
+- jdbc
+- mybatis
+- 트랜잭션 관련
+- DBCP관련( 커먼즈 or 히카리CP)
+-
+----------------------------------------------------------
+DB작업
+
+- MyBatisTest > "script.sql"
+
+---------------------------------------------------------------
+
+MyBatis + Log4j(Log for Java) 연동
+
+-pom.xml > 의존성 5개
+-src/main/resources > log4j.xml
+-root-context.xml > 수정
+
+
+
+
+--------------------------------------------------------------
+Java(Spring) + DB 연동
+-JDBC(잦은 코드 반복, SQl 작성 불편)
+-Spring JDBC
+-MyBatis > 스프링 수업때 사용
+-JPA > 스프링부트 수업때 사용
+
+MyBatis(iBatis)
+- 영속성 계층(데이터베이스 조작)
+- JDBC > Wrapping
+MyBatis 특징
+- SQL Mapper Framework > SQL 실행 결과를 객체로 '매핑'해준다. (***)
+- SQL 작성 > XML 파일에 작성한다.
+- 기존 방식 > String sql = "select ,,,";
+- 생산성, 유지보수 향상
+
+------------------------------------------------------------------
+파일 & 패키지(디렉터리)
+- "com.test.java.controller" > "MyBatisController.java"
+- "com.test.java.model" > "MyBatisDAO.java"(I)
+-						> "MyBatisDAOImpl.java"(C)
+-						> "AddressDTO.java"
+- views > "result.jsp"
+- 		> "list.jsp"
+-  		> "add.jsp"
+
+--------------------------------------------------------------------
+MyBatis 설정하기
+- root-context.xml
+<!-- Commons DBCP -->	
+		<bean class="org.apache.commons.dbcp.BasicDataSource"></bean>
+
+단위 테스트 > JUnit
+- 일부 기능이 정상적으로 구현/동작되는지 테스트하는 행위
+- src/main/java > 구현
+- src/test/java > 테스트
+
+- src/test/java > "com.test.java.model"
+						- "XXXTests.java"
+						- "CommonsDBCPTests.java"
+						- "MyBatisTests.java"
+						
+<!-- SAXParseException > xml 오류 -->
+>><![CDATA[ 절 단위로 묶거나 필요한 부분 묶으면 됨 ]]  PCDATA > CDATA로 바꿔줌 (XML에서)	
+
+-------------------------------------------------------
+

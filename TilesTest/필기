@@ -1,0 +1,36 @@
+새 프로젝트
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "TilesTest"
+- root package: "com.test.tiles"
+
+========================================================
+ 의존성 추가 
+ - pom.xml
+ 
+ 설정하기
+ - servlet-context.xml >  뷰 리졸버 안씀 (주석처리) > 새로 추가하기
+ <beans:bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<beans:property name="order" value="1" />
+	</beans:bean>
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean> 
+	
+새 프로젝트
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "FileTest"
+- root package: "com.test.file"
+
+========================================================
+	

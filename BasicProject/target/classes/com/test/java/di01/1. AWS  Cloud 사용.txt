@@ -1,0 +1,4 @@
+1. AWS > Cloud 사용
+       > OS > Linux 수업
+
+-C:\code\linux 폴더생성

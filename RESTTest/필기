@@ -1,0 +1,113 @@
+새 프로젝트
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "RESTTest"
+- root package: "com.test.rest"
+
+-- 버젼 맞추기
+
+REST
+- REST, Representational State Transfer
+- 웹상의 자원(문서,이미지, 동영상, 데이터 등)의 위치를 자원명으로 표시해서 자원의 상태를 주고 받기 위한 행동 + 표현법
+- 웹상의 자원을 URI 자체로도 식별 가능하게 URI를 만들자(***)
+- 표준안이 없다.
+
+- REST API or RESTful API
+
+URI(URL) 작성
+- 회원관리 생성 > 각각의 주소 생성
+
+1. 기존방식
+- URL > 주로 동사를 사용 + 행동 의미
+- 중간 경로(/member) >  업무 영역 의미
+- 메서드 > GET, POST 사용 > 무슨 행동인지 구분이 애매(추가/수정/삭제의 경우)
+	[메서드]    				[URI]
+-	  GET					http://localhost/member/list.do  				목록보기
+-	  POST					http://localhost/member/add.do   				추가하기
+-	  POST					http://localhost/member/edit.do?seq=1 			수정하기
+-	  POST					http://localhost/member/del.do?seq=1  			삭제하기
+-	  GET					http://localhost/member/list.do?word=검색어  	검색하기
+
+2. REST 방식
+- 
+	[메서드]    				[URI]
+-	  GET					http://localhost/member			  				목록보기
+-	  POST					http://localhost/member  		 				추가하기
+-	  PUT					http://localhost/member/1 						수정하기
+-	  DELETE				http://localhost/member/1	  					삭제하기
+-	  GET					http://localhost/member/검색어  					검색하기
+
+REST API 설계 규칙
+1. URI에서 자원을 표시한다.(주로 URI의 마지막에 명사로 표현)
+2. URI에 동사를 표시하지 않는다.(무슨 행동을 하는지 URI로 표현하지 말것)
+3. HTTP Method를 사용해서 행동을 표시한다
+	a. GET:			서버로부터 리소스 요청 
+	b. POST:		데이터를 서버에게 전달 + 서버측 생성
+	c. PUT:			데이터를 서버에게 전달 + 서버측 수정(전체 수정)
+	d. PATCH:		데이터를 서버에게 전달 + 서버측 수정(일부 수정)
+	e. DELETE:		데이터를 서버에게 전달 + 서버측 삭제
+	
+4. URI + HTTP Method = 완성
+5. 구분자는 '/'를 사용한다.
+6. URI의 마지막에 '/'를 적지 않는다.
+7. '-' > 사용가능(가독성) 
+8. '_' > 사용 비권장(가독성) 
+9. 확장자를 사용하지 않는다.
+
+10. REST API의 요청 결과(반환값)는 순수 데이터만 반환한다.
+	- JSON XML Text만 반환
+	- HTML 반환(X)
+	- Ajax용 서버라고 생각
+	- REST 방식은 클라이언트가 모든 기기/환경일 수 있다고 가정 (ex) 소켓통신?)
+
+=========================================================================================================================	
+MyBatis 설정
+- pom.xml > 의존성
+	- log4j > 1.2.17
+	- Servlet > 3.1.0
+	- JSP > 2.3.3
+	- Lombok
+	- JDBC
+	- MyBatis
+	- HikariCP
+
+- root-context.xml
+그 외 부족한거 추가해줘
+==========================================================================================================================
+REST API Server 구축
+- 클라이언트 > 브라우저 (ajax), 모바일 웹, JavaScript Framework 등..
+- 요청  URI > RESTful 설계
+- 요청/응답 데이터 >JSON 기반 (Jakson json.jar 필요)
+
+업무
+- tblAddress > CRUD
+
+파일
+-"com.test.rest.controller" > "AddressController.java"
+-"com.test.rest.model" > "AddressDAO.java"
+						> "AddressDTO.java"
+						
+- views> 안 만든다.
+
+REST API 개발시 > 테스트용 클라이언트 도구가 필요함
+1.	- 브라우저 > 부적합
+		-GET > 테스트 용이
+		-POST >  테스트 불편(테스트용 jsp를 따로 만들어야 됨)
+		-PUT/PATCH/DELETE > 테스트 불가> <form method="GET/POST">
+
+2. cmd > curl 명령어(프로그램) > 임시용
+
+3. 전문적인 REST Client Tools 사용
+	- Postman(*) > 유명함 ㅎㅎ
+	- Insomnia
+	- VS Code(*)
+	- Swagger(*) > 테스트용 페이지 구축 > 포트폴리오에 넣기 좋음 (화려함 ㅋㅋ)
+	- 등등...
+	
+	vscode도 쓰고 포스트맨도 쓰고 스웨거도 쓰고~ 다 써서 하면 좋음...
+=======================================================================================	
+Swagger 설정하기
+- API 문서 자동화 + 테스트하기
+- pom.xml /  servlet context.xml / config  세군데 설정
+- 도움말 만들기
+- Postman > 테스트 환경 만들기

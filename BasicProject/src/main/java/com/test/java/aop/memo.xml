@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- memo.xml 스프링 컨테이너  -->
+	<!-- 스프링이 제공하는 여러가지 혜택 적용 > 반드시 스프링 빈이어야 된다.  -->
+
+	<!-- 주 업무 객체 -->	
+	<bean class="com.test.java.aop.MemoImpl" id="memo"></bean>
+	
+	<!-- 보조업무 객체 -->
+	<bean class="com.test.java.aop.Logger" id="logger"></bean>
+	
+	<!-- Spring AOP 설정 -->
+	<aop:config>
+		
+		<!-- 보조 업무 객체 역할 부여(role)  -->
+		<aop:aspect ref="logger">
+		
+			<!-- 
+				보조 업무 객체가 주업무들 중 어느 주업무에 개입
+				- PointCut 지정하기
+				
+				PointCut
+				- 특정 클래스의 메서드
+				- MemoImpl 클래스의 add 메서드
+				- MemoImpl 클래스의 read 메서드
+				
+				PointCut Expression
+				- 어떤 클래스 + 어떤 메서드
+				- AspectJ 표현식
+				
+				AspectJ 표현식
+				- execution() 지시자
+					- execution([접근지정자] 반환형 [패키지.클래스].메서드(인자))
+					- execution(public void com.test.java.aop.MemoImpl.add(String))
+					
+						- '*' : 와일드카드(접근지정자, 반환형, 패키지, 클래스)
+						- '..' : 와일드카드(인수(매개변수만))
+
+				- within() 지시자
+				
+					
+				
+				
+			 -->
+			
+			<aop:pointcut expression="execution(public void com.test.java.aop.MemoImpl.add(String))" id="p1"/>
+			<aop:pointcut expression="execution(public String com.test.java.aop.MemoImpl.read(String))" id="p2"/>
+			<aop:pointcut expression="execution(public boolean com.test.java.aop.MemoImpl.edit(String,String))" id="p3"/>
+			<aop:pointcut expression="execution(public boolean com.test.java.aop.MemoImpl.del(String))" id="p4"/>
+			<aop:pointcut expression="execution(* com.test.java.aop.MemoImpl.*(..))" id="p5"/>
+			<aop:pointcut expression="execution(* add(..))" id="p6"/>
+			<aop:pointcut 
+    expression="execution(void com.test.java.aop.MemoImpl.*(..)) 
+             || execution(String com.test.java.aop.MemoImpl.*(..))" 
+    id="pNonBoolean"/>
+    		<!-- 난 이런 방법이 깔끔해보이는듯  -->
+    		<aop:pointcut 
+    expression="execution(* com.test.java.aop.MemoImpl.*(..)) 
+                &amp;&amp; !execution(boolean com.test.java.aop.MemoImpl.*(..))" 
+    id="pNonBoolean"/>
+			
+			<!--  
+				주업무 실행 중 어느 시점에 보조 업무가 개입할지 정해줘야됨 
+				PointCut + 보조업무객체.메서드() = 결합 > 위빙(Weaving)
+				
+				위빙 시점.
+				1. Before Advice
+				2. After Advice
+				3. Around Advice
+				4. After-returning Advice
+				5. After-throwing Advice		
+			-->
+			
+			<!-- 주업무(pointcut-ref) + 보조업무(method)  -->
+			<!-- <aop:after method="log" pointcut-ref="p1" /> -->
+			<!-- <aop:after method="log" pointcut-ref="p2" /> -->
+			<!-- <aop:after method="log" pointcut-ref="p3" /> -->
+			<!-- <aop:after method="log" pointcut-ref="p4" /> -->
+			<!-- <aop:after method="log" pointcut-ref="p5" /> -->
+			
+			<!-- Before, After  -->
+			<!-- <aop:before method="log" pointcut-ref="p1" /> -->
+			
+			<!-- around  -->	
+			<aop:around method="around" pointcut-ref="p1" />		
+			<aop:around method="around" pointcut-ref="p2" />		
+			<aop:around method="around" pointcut-ref="p3" />		
+			<aop:around method="around" pointcut-ref="p4" />		
+					
+			
+					
+		</aop:aspect>
+		
+	</aop:config>
+	
+	
+</beans>

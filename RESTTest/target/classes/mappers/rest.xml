@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- src/main/resources > mappers > code.xml -->
+<!-- XML Mapper -->
+<mapper namespace="rest">
+
+	<select id="time" resultType="String">
+		select sysdate from dual
+	</select>
+	
+	<select id="m1" resultType="adto">
+		select * from tblAddress where seq = 1
+	</select>
+	
+	<insert id="add" parameterType="adto">
+		insert into tblAddress
+			values (seqAddress.nextVal,#{name},#{age},#{address},#{gender})
+	</insert>
+	
+	<select id="list" resultType="adto">
+		select * from tblAddress
+	</select>
+	
+	<update id="edit" parameterType="adto">
+		update tblAddress set
+			name = #{name},
+			age = #{age},
+			gender = #{gender},
+			address = #{address}
+			 	where seq = #{seq}
+	</update>
+	
+	<delete id="del" parameterType="String">
+		delete from tblAddress where seq = #{seq}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

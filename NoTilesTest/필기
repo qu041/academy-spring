@@ -1,0 +1,46 @@
+새 프로젝트 
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "noTilesTest"
+- root package: "com.test.notiles"
+
+Tiles
+- 웹 애플리케이션에서 반복되는 페이지 조각을 분리 > 효율적으로 관리해주는 오픈소스 템플릿 프레임워크
+<%@ include="file" %>
+- 아파치 재단
+- 스프링 레거시에서 주로 사용
+- 스프링 부트 + 타임리프(JSP 역할 + Tiles 역할)
+
+구현 기능
+- 메인(/index.do)
+
+- 회원
+	- 회원정보(/member/info.do)
+	- 활동내역(/member/history.do)
+	- 즐겨찾기(/member/favorite.do)
+	
+
+- 관리자
+	- 로그(/admin/log.do)
+	- 환경설정(/admin/setting.do)
+
+=============================================================================	
+파일
+- "com.test.notiles.controller" > "MainController.java"
+								> "MemberController.java"
+								> "AdminController.java"
+								
+-views> index.jsp
+-views> member > info.jsp
+			  > history.jsp
+			  > favorite.jsp
+			  
+-views > admin > log.jsp
+				> setting.jsp
+				
+-views> inc > main_menu.jsp // 주메뉴
+			> member_menu.jsp //보조메뉴(회원)						 
+			> admin_menu.jsp //보조메뉴(관리자)
+			> asset.jsp	
+											 
+							

@@ -1,0 +1,20 @@
+새 프로젝트
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "AOPTest"
+- root package: "com.test.aop"
+
+-- 버젼 맞추기
+
+-- 의존성 추가
+- pom.xml
+-servlet-context.xml > aop 설정하기
+
+파일
+-"com.test.aop.controller" > "MemoController.java"
+-"com.test.aop.service" > "MemoService.java"
+-views > "list.jsp"
+	   > "add.jsp"
+	   > "view.jsp"
+	   
+- "com.test.aop.aspect" > "Logger.java"

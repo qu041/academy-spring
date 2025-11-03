@@ -1,0 +1,29 @@
+새 프로젝트
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "FileTest"
+- root package: "com.test.file"
+
+========================================================
+
+pom.xml 서블릿 버젼 업글
+========================================================
+
+파일 업로드 설정하기
+1. 파일 저장 폴더: webapp >  resources >"files"
+2. web.xml 
+3. servlet-context.xml
+	<!--파일 업로드를 처리하는 빈 -->
+	<beans:bean id="multipartResolver"
+	class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
+	
+파일
+- "com.test.file.controller" > "FileController.java"
+- views > "ex01.jsp" //폼
+- 		> "ex01ok.jsp"//완료 & 다운로드
+		> "ex02.jsp" // 다중 첨부파일 
+		> "ex02ok.jsp
+		> "ex03.jsp" // 다중 첨부파일 
+		> "ex03ok.jsp" 
+		> "ex04.jsp //	ajax 기반 파일 업로드

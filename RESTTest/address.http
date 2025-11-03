@@ -1,0 +1,35 @@
+// address.http
+ //커서로 하는거임
+
+//추가하기
+POST http://localhost:8080/rest/address
+Content-Type: application/json
+
+{
+    "name" : "지네",
+    "age" : 100,
+    "gender" : "f",
+    "address" : "서울시 강남구 역삼동 흙바닥"
+}
+
+### //구분자(# 세개 이상)로 위 아래 요청이 물리적으로 구분됨
+
+//목록보기
+GET http://localhost:8080/rest/address
+
+###
+
+//수정하기
+PUT http://localhost:8080/rest/address/84
+content-type: application/json
+
+{
+    "name" : "지네선생님",
+    "age" : 50,
+    "gender" : "f",
+    "address" : "서울시 강남구 역삼동 흙바닥"
+}
+
+###
+//삭제하기
+DELETE http://localhost:8080/rest/address/58

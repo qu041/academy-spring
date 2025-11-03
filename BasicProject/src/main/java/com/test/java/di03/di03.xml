@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--
+		di03.xml
+		
+		스프링 설정 파일	
+		 = 스프링 컨테이너
+		 
+		 객체들을 선언하는 파일
+		 - Hong, Lee, Service 선언하기 위해서
+	 -->
+	 
+	 <!-- 객체 1개 선언 -->
+	 <!-- Bean 1개 선언 -->
+	 
+	 <bean class="com.test.java.di03.Hong" id="hong"></bean>
+	
+	 <bean class="com.test.java.di03.Lee" id="lee"></bean>
+
+</beans>

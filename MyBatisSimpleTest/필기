@@ -1,0 +1,87 @@
+
+새 프로젝트 
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "MyBatisSimpleTest"
+- root package: "com.test.mybatis"
+
+
+
+
+
+현재 프로젝트 버전 수정하기
+
+1. 자바 버전 > 11
+	- pom.xml
+	- 프로젝트 > 우측버튼 > Properties > Project facets
+	
+2. 스프링 버전 > 5.0.7
+	- pom.xml
+
+2.5 config mappers log4j/log4jproperties
+
+3. root -context
+----------------------------------------------------------
+
+MyBatisTest > XML Mapper 사용
+			> XML 파일에 SQL을 작성
+			> SqlSessionTemplate을 사용해 SQL을 실행
+			
+MyBatisSimpleTest > Interface Mapper 사용
+					-SQL을 인터페이스에 작성 or XML 파일에 작성
+					> 쿼리실행을 interface Mapper를 사용해 SQL을 실행		
+					
+					
+==========================================================
+파일 
+-"com.test.mybatis.controller > AddressController.java
+-"com.test.mybatis.model > AddressDAO.java
+-  						 > AddressDTO.java
+- com.test.mybatis.mapper > AddressMapper.java(I) 인터페이스 매퍼 > root xml에서 스프링 스캔 가능하게 경로 작성해놔야됨!!				
+
+
+//심플이즈베스트 > 이걸로 하되 쿼리는 xml에작성 경로랑 파일명을 리소스랑 인터페이스랑 맞춰줘야되고 경로표시도 잘해줘야됨
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.test.mybatis.mapper.AddressMapper">
+
+	<select id ="list" resultType="com.test.mybatis.model.AddressDTO">
+		select * from tblAddress
+	</select>
+
+	<select id ="get" resultType="com.test.mybatis.model.AddressDTO">
+		select * from tblAddress where seq = #{seq}
+	</select>
+</mapper>
+
+=================================================================================이런식으로요
+
+Spring Security (인증,허가) >하루~이틀
+- Git, AWS(?) > 각각 하루(AWS + Linux)
+-회원 +게시판 >> 전체적으로 통합해서 하루~삼일
+
+넉넉잡고 위에 6일하면
+
+끝나면 스프링 마이그레이션 프로젝트 진행
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

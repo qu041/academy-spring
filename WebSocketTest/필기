@@ -1,0 +1,76 @@
+새 프로젝트
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "WebSocketTest"
+- root package: "com.test.socket"
+
+-- 버젼 맞추기
+
+-WebSocket, 웹소켓
+- 소켓(Socket) > 네트워크상에서 호스트간의 데이터를 주고 받은 규약(인터페이스)
+	- 자바 > 소켓 인터페이스 구현 >  자바 소켓 클래스
+	- c# > 소켓 인터페이스 구현 > c# 소켓 클래스
+	
+- WebSocket > ws 프로토콜을 기반으로 웹 클라이언트(JavaScript)와 서버(Servlet,Spring,  ASP.NET 등) 사이에 통신을 제공하는 기술
+				- 소켓에 비해 쉽고 간결하게 구현
+
+-개념 비교
+1. 여태까지 환경(http) > 브라우저 + 웹서버 , ajax + 웹서버
+	- 비연결 지향
+	- 둘의 관계가 일방적 > 오로지 클라이언트의 의지만으로 서로 연결이 가능
+						> 서버의 의지로는 클라이언트에 연결 불가능
+						> 계속 갱신을 해야되는데 번거로움이 있음(오버헤드? 손실이 생김?)
+						
+2. 소켓 환경(ws) > 웹소켓간의 통신(자바스크립트 소켓 + 자바(스프링) 소켓)
+	- ws > 연결 지향
+	- 둘의 관계가 양뱡향 >  서버측이 클라이언트에게 요청 가능
+						> 클라이언트 측이 서버에게 요청 가능
+						> 실시간으로 서버의 변화를 감지해서 연결함.
+						> 채팅(1대1 채팅/ 다자채팅 구현예정)
+						
+소켓 통신 동작 방식
+
+1. 호스트A, 호스트B
+2. 호스트A > 소켓(전화기) 생성 + IP 주소(+포트번호) > 종단점(EndPoint)(=IP 주소 + 포트번호)
+3. 호스트B > 소켓(전화기) 생성 + [IP주소(+포트번호) = 종단점
+
+4. 호스트 B > 받는 사람 > 서버 > 미리 수신 대기 준비 = 리스너 역할
+5. 호스트 A > 거는 사람 > 클라이언트 > 호스트B의 종단점을 알아야 연결 시도 가능
+6. 호스트 B > 연결 수락 > 연결 수립(3-way 핸드쉐이크) / 
+
+WebSocket 설정
+1. 의존성
+	- pom.xml
+	
+	*json 관련 jar
+	1. json-simple
+	2. jackson-databind
+	3. gson
+	
+====================================================
+1:1 통신 예
+- 서버(리스너) > 스프링
+- 클라이언트 > 자바스크립트
+
+파일
+-"com.test.socket.controller" > "SocketController.java" //그냥 컨트롤러
+-"com.test.socket.server" > "SocketServer.java"	 //서버
+
+- views > "test.jsp" //클라이언트
+
+==========================================================
+채팅 구현
+- 단톡방 구현(다자간 채팅)
+- 1:1 채팅
+- 채팅방 구현(X)
+- DB 연동(X)
+
+-"com.test.socket.controller > "ChatController.java"
+-"com.test.socket.server > "ChatServer.java"
+-"com.test.socket.domain" >"Message.java" (DTO 역할)
+
+-views > "index.jsp" > 접속화면 (대화명 입력 + 단톡방 들어가기)
+	   > "chat.jsp"  > 대화화면
+
+	
+						

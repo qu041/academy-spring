@@ -1,0 +1,140 @@
+
+새 프로젝트 
+
+- New > Spring Legacy Project > Spring MVC Project
+- Project name: "WebTest"
+- root package: "com.test.java"
+
+
+현재 프로젝트 버전 수정하기
+
+1. 자바 버전 > 11
+	- pom.xml
+	- 프로젝트 > 우측버튼 > Properties > Project facets
+	
+2. 스프링 버전 > 5.0.7
+	- pom.xml
+
+
+롬복 설치하기
+
+- pom.xml > 의존성 추가
+	
+----------------------------------------------------------
+
+
+Window > Preferences > "encoding"
+
+
+----------------------------------------------------------
+
+
+Servlet/JSP MVC Project vs Spring MVC Project
+
+Servlet/JSP MVC Project
+- 모든 작업을 개발자가 결정 + 설계 + 구축 + MVC 디자인 패턴 도입
+
+Spring 프레임워크
+- 대부분 작업을 위한 틀을 제공(결정 + 설계) > 프레임워크
+- 개발자는 그 틀안에서 주어진 요소들만 구현
+
+----------------------------------------------------------
+
+Spring Web MVC Project
+- DI 적용
+
+
+파일 및 패키지
+
+- "com.test.java.controller"
+					- "Ex01Controller.java"
+					
+- views > "ex01.jsp"
+--------------------------------------------------------------------------------------
+- "com.test.java.controller" > "Ex02Controller.java"
+- "com.test.java.model" > "SpringDAO.java"
+- views > "ex02.jsp"
+
+XML을 사용한 스프링 설정
+>
+어노테이션을 사용한 스프링 설정(현시점에서 가장 많이쓰임)
+>
+자바를 사용한 스프링 설정
+
+---어노테이션방식-----
+- "com.test.java.controller" > "Ex03Controller.java"
+- "com.test.java.model" > "SpringDAO03.java"
+- views > "ex03.jsp"
+
+---어노테이션방식/메소드 구분하기(GET/POST)-------------------------------------------
+- "com.test.java.controller" > "Ex04Controller.java"
+							 > "Ex04GetController.java"
+							 > "Ex04PostController.java"
+- views > "ex04.jsp"
+		> "ex04get.jsp"
+		> "ex04post.jsp"
+--------------------------------------------------------------
+
+---어노테이션방식/컨트롤러 하나에 메소드 합쳐서 만들기-------------------------------------------
+-서블릿 1개 > doGET() + doPost()
+
+- "com.test.java.controller" > "Ex05Controller.java"
+
+- views > "ex05.jsp"
+		> "ex05get.jsp"
+		> "ex05post.jsp"
+--------------------------------------------------------------
+
+데이터 전송 + 수신하기 ****
+- com.test.java.controller > "Ex06Controller.java"
+- com.test.java.model > "AddressDTO.java" //DTO 자동 파라미터 수집
+- views > "ex06.jsp"
+		> "ex06ok.jsp"
+		
+-------------------------------------------------------------------
+요청 메서드
+
+- "com.test.java.controller" > "Ex07Controller.java" //브라우저용
+- "com.test.java.controller" > "Ex07RestController.java" //ajax용
+
+- views > "ex07.jsp"
+
+------------------------------------------------------------------------
+의존 주입 + 어노테이션 방식
+
+- "com.test.java.controller" > "Ex08Controller.java" //사장
+- "com.test.java.service" > "SpringService.java" //팀장
+- "com.test.java.model" > "SpringDAO.java"   //팀원
+
+- views > "ex08.jsp"
+
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
